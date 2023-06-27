@@ -1,26 +1,58 @@
 import Navbar from './components/Navbar';
+import Product from './components/Product';
+import "./App.css";
 
+const products = [
+  {
+    id: 1,
+    name: 'کولر پنجره ای ال جی',
+    status: 1,
+    price: 950000,
+    location: 'لحضاتی پیش در سبز میدان',
+  },
+  {
+    id: 2,
+    name: 'کولر پنجره',
+    status: 0,
+    price: 80000,
+    location: 'لحضاتی پیش در استادسرا',
+  },
+  {
+    id: 3,
+    name: 'کولر',
+    status: 1,
+    price: 800000,
+    location: 'لحضاتی پیش ',
+  },
+  {
+    id: 4,
+    name: ' پنجره ',
+    status: 1,
+    price: 1200000,
+    location: 'لحضاتی پیش در استادسرا',
+  },
+  {
+    id: 5,
+    name: ' پنجره ',
+    status: 1,
+    price: 1200000,
+    location: 'لحضاتی پیش در استادسرا',
+  },
+];
 function App() {
   return (
     <div>
-      <Navbar></Navbar>
-      <div
-        style={{
-          display: 'flex',
-          border: '1px solid #444',
-          borderRadius: '5px',
-          overflow: 'hidden',
-          width:"400px",
-          justifyContent:"space-between"
-        }}
-      >
-        <div style={{display:"flex", gap:"20px", flexDirection:"column"}}>
-          <h3>کولر پنجره ای ال جی</h3>
-          <p>کارکرده</p>
-          <p>9500000 تومان</p>
-          <p>لحضاتی پیش در استادسرا</p>
-        </div>
-        <img style={{width:"200px", height:"200px"}} src="https://s100.divarcdn.com/static/thumbnails/1686608740/AZHqWCXa.webp" alt='کولر پنجره ای ال جی'/>
+      <Navbar />
+      <div className='productList'>
+        {products.map((item) => (
+          <Product
+            key={item.id}
+            name={item.name}
+            status={item.status}
+            location={item.location}
+            price={item.price}
+          />
+        ))}
       </div>
     </div>
   );
